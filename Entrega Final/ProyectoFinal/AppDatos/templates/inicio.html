@@ -1,0 +1,38 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <br>
+    <br>
+
+    <h3>Podes buscar un vehículo:</h3>
+
+    <form action="buscar/" method="GET">
+
+        <input name="Fabricante" name="Modelo">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+
+    
+
+    {% if automoviles %}
+
+    <p>Estamos buscando: {{automovil}}</p>
+
+    <ul>
+	{% for automovil in automoviles %}
+		<li> {{automovil.fabricante}} </li>
+		<li> {{automovil.modelo}} </li>
+	{% endfor %}
+
+    </ul>
+   
+    {% endif %}
+
+{% endblock %}
